@@ -24,20 +24,30 @@ mutate(across(where(is.character), as.factor))
 Some of the data was uncoded for sex - sex must be just male or female
 77 of the data entries were coded sex  as blank, so we omit these.
 state of a patient must be died or alive - we adjust that as well   
-  
+ 
 # Your Question - Is dying independent of sex?
 
+#Methods
+Result: Categorical
+Sex~Categorical
+
+We use the Cat~Cat helper file
 
 
-
+$H_0$: Dying is not independent of sex
+$H_A$: Dying is independent of sex
 
 
 ## Graphical results - use ggplot commands to do this  
 
+```{r}
+barchartGC(~result + Sex,data=kRdata)
+barchartGC(~result + Sex,data=kRdata, type="percent")
 
+```
 
   
-
+The bar chart shows that men die at a higher rate compared to women.
 
 
 
