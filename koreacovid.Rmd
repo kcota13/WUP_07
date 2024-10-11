@@ -55,11 +55,24 @@ The bar chart shows that men die at a higher rate compared to women.
   
 ## Numerical results
 
+```{r}
+table1 <- xtabs(~result + Sex, data=kRdata)
+rowPerc(table1)
+colPerc(table1)
+```
+Among the people who died 64% were men and 36% were female. The men percentage is double the female percentage.
+
 
 ## Inferential results 
 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
 
+The p-value for the Chi-squared test was 0.0012. This is less than 0.05, thus we reject the null hypothesis. Men are 2.3 times more likely to die of covid in korea than the women are. 
 
 
 ## Conclusions
-
+Our graphical results showed us that men are more likely to pass from covid in korea than women are. Among the people who died in Jan-May 2020, 64% where men and 36% were women. The p-value for the Chi-squared test was less than .05, making us reject the null hypothesis. We conclude that there is a difference in dying based on sex. Our data showed that men are 2.3 times more likely to die from covid in korea than women.  
